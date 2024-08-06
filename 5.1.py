@@ -43,11 +43,6 @@ if user_variable:
                     break
     print("Punctuation and Space check pass - ", not_content_punctuation)
 
-    # not_content_duble_underscore = True
-    # if not user_variable.find('__') == -1:
-    #     not_content_duble_underscore = False
-    # print("Underscore check pass - ", not_content_duble_underscore)
-
     no_multiple_underscores = True
     if len(user_variable) > 1:
         compare_var = len(user_variable)*'_'
@@ -55,14 +50,11 @@ if user_variable:
             no_multiple_underscores = False
     print("Multiple underscore check pass - ", no_multiple_underscores)
 
-
-
     if user_variable in keyword.kwlist:
         not_keyword = False
     else:
         not_keyword = True
     print("Not keyword: ", not_keyword)
-
 
     if is_first_symbol_not_digit and is_all_char_lowercase and not_content_punctuation and no_multiple_underscores and not_keyword:
         print(f"True. The variable '{user_variable}' is acceptable")
