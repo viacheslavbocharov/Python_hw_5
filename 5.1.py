@@ -6,11 +6,11 @@ user_variable = input("Enter your variable: ")
 # user_variable = '__'
 # user_variable = '___'
 # user_variable = 'x'
-# user_variable = 'get_value'
+# user_variable = 'getvalue__'
 # user_variable = 'get value'
 # user_variable = 'get!value'
 # user_variable = 'some_super_puper_value'
-# user_variable = 'et_value'
+# user_variable = 'Get_value'
 # user_variable = 'get_Value'
 # user_variable = 'getValue'
 # user_variable = '3m'
@@ -43,10 +43,18 @@ if user_variable:
                     break
     print("Punctuation and Space check pass - ", not_content_punctuation)
 
-    not_content_duble_underscore = True
-    if not user_variable.find('__') == -1:
-        not_content_duble_underscore = False
-    print("Underscore check pass - ", not_content_duble_underscore)
+    # not_content_duble_underscore = True
+    # if not user_variable.find('__') == -1:
+    #     not_content_duble_underscore = False
+    # print("Underscore check pass - ", not_content_duble_underscore)
+
+    no_multiple_underscores = True
+    if len(user_variable) > 1:
+        compare_var = len(user_variable)*'_'
+        if compare_var == user_variable:
+            no_multiple_underscores = False
+    print("Multiple underscore check pass - ", no_multiple_underscores)
+
 
 
     if user_variable in keyword.kwlist:
@@ -56,7 +64,7 @@ if user_variable:
     print("Not keyword: ", not_keyword)
 
 
-    if is_first_symbol_not_digit and is_all_char_lowercase and not_content_punctuation and not_content_duble_underscore and not_keyword:
+    if is_first_symbol_not_digit and is_all_char_lowercase and not_content_punctuation and no_multiple_underscores and not_keyword:
         print(f"True. The variable '{user_variable}' is acceptable")
     else:
         print(f"False. The variable '{user_variable}' is unacceptable")
